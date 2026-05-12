@@ -1,0 +1,30 @@
+/* Smooth Scroll saat pindah section */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Style Menu Aktif */
+.nav-link.active {
+    color: #e11d48 !important;
+    /* Warna Merah Sabana */
+    border-bottom: 2px solid #e11d48;
+    /* Garis Bawah Merah */
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: #e11d48;
+}
+
+/* Ukuran Slider agar konsisten */
+.swiper {
+    width: 100%;
+    height: 450px;
+    /* Sesuaikan tinggi slider */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

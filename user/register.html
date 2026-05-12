@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- Card utama -->
+    <div class="login-wrapper">
+      <div class="top-right-toggle">
+        <a
+          href="javascript:history.back()"
+          class="back-btn"
+          title="Kembali ke halaman sebelumnya"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="sr-only">Kembali</span>
+        </a>
+      </div>
+
+      <div class="mode-badge register">REGISTRASI USER</div>
+
+      <!-- Panel kiri -->
+      <div class="left-panel">
+        <div class="logo">
+          <div class="logo-icon"></div>
+          <div class="logo-text">Sabana<br />Fried Chicken</div>
+        </div>
+
+        <div class="avatar">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <div class="form-title">BUAT AKUN BARU</div>
+
+        <div class="alert" id="alertBox"></div>
+
+        <!-- ============ FORM REGISTRASI USER ============ -->
+        <form
+          id="registerForm"
+          action="process/register.php"
+          method="POST"
+          onsubmit="return handleRegister(event);"
+        >
+          <div class="row-2">
+            <div class="input-group">
+              <i class="fa-solid fa-user left-icon"></i>
+              <input
+                type="text"
+                name="nama_depan"
+                placeholder="NAMA DEPAN"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-user left-icon"></i>
+              <input
+                type="text"
+                name="nama_belakang"
+                placeholder="NAMA BELAKANG"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-envelope left-icon"></i>
+            <input type="email" name="email" placeholder="EMAIL" required />
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock left-icon"></i>
+            <input
+              type="password"
+              name="password"
+              placeholder="PASSWORD"
+              minlength="5"
+              required
+            />
+          </div>
+
+          <button type="submit" class="login-btn">DAFTAR</button>
+
+          <div class="switch-form">
+            Sudah punya akun?
+            <a href="login.html">Login di sini</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Panel kanan -->
+      <div class="right-panel">
+        <div class="welcome-content">
+          <h1>Join Us.</h1>
+          <p>
+            Buat akun Anda sekarang dan nikmati semua fitur yang tersedia di
+            Sabana Fried Chicken.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script-register.js"></script>
+  </body>
+</html>
