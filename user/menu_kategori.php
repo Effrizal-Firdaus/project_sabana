@@ -4,8 +4,8 @@ session_start();
 // Sertakan koneksi database dari folder server
 include_once __DIR__ . '/../server/koneksi.php';
 
-$sudah_login = isset($_SESSION['user_id']);
-$nama_user   = $sudah_login ? htmlspecialchars($_SESSION['nama']) : '';
+$sudah_login = isset($_SESSION['user']['id']);
+$nama_user   = $sudah_login ? htmlspecialchars($_SESSION['user']['nama']) : '';
 
 $kategori_pilihan = isset($_GET['kategori']) ? strtolower($_GET['kategori']) : 'reguler';
 ?>
