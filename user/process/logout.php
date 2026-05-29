@@ -1,7 +1,6 @@
 <?php
-  session_start();
-  session_unset();
-  session_destroy();
-  header("Location: ../login.html"); 
-  exit;
+session_start();
+unset($_SESSION['user']); // Hanya hapus session user
+header("Location: ../login.html");
+exit;
 ?>

@@ -1,0 +1,69 @@
+/* ========== MENU KATEGORI SPECIFIC ========== */
+@keyframes ngeper {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.08); }
+    60% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+.menu-item-clicked {
+    animation: ngeper 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards !important;
+    will-change: transform;
+}
+.group { transition: transform 0.3s ease; }
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.menu-title {
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    font-weight: 700;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .menu-title { font-size: clamp(1rem, 1.5vw, 1.2rem); }
+}
+.group:hover .menu-title { color: #e11d48; }
+.menu-box {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    border: 1px solid #f3f4f6;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+.group:hover .menu-box {
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+}
+.menu-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+#modalDetail {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#modalDetail.hidden { opacity: 0; visibility: hidden; }
+#modalDetail:not(.hidden) { opacity: 1; visibility: visible; }
+.social-icon {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.social-icon:hover { transform: scale(1.15); }
+@keyframes ngeperSocial {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.2); }
+    60% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.social-icon-clicked {
+    animation: ngeperSocial 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards !important;
+}
+#menuArrow {
+    transition: transform 0.3s ease;
+}
+#menuArrow.rotate {
+    transform: rotate(180deg);
+}

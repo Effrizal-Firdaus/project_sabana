@@ -1,0 +1,64 @@
+/* ===== CSS KHUSUS UNTUK MANAJEMEN KELOLA MENU ===== */
+
+/* --- Pemotongan Teks (Line Clamp) --- */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Efek Hover & Active untuk Filter Kategori Menu --- */
+.menu-filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #f8fafc;
+    color: #64748b;
+    border-color: #e2e8f0;
+    cursor: pointer;
+}
+.menu-filter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+/* Warna Kategori */
+/* Warna Kategori */
+.menu-filter-btn.active[data-category="semua"],
+.menu-filter-btn[data-category="semua"]:hover { background-color: #4a5d42; border-color: #4a5d42; color: white; }
+
+.menu-filter-btn.active[data-category="Reguler"],
+.menu-filter-btn[data-category="Reguler"]:hover { background-color: #d97706; border-color: #d97706; color: white; }
+
+.menu-filter-btn.active[data-category="Tambahan"],
+.menu-filter-btn[data-category="Tambahan"]:hover { background-color: #3b82f6; border-color: #3b82f6; color: white; }
+
+.menu-filter-btn.active[data-category="Paket"],
+.menu-filter-btn[data-category="Paket"]:hover { background-color: #e11d48; border-color: #e11d48; color: white; }
+
+.menu-filter-btn.active[data-category="Paket Combo"],
+.menu-filter-btn[data-category="Paket Combo"]:hover { background-color: #9333ea; border-color: #9333ea; color: white; }
+/* ================= EFEK FISIK KARTU MENU (MAJU & NGEPER) ================= */
+
+.modern-card-menu {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transisi karet/memantul */
+    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.modern-card-menu:hover {
+    transform: translateY(-10px); /* Efek maju ke depan / melayang naik yang SANGAT JELAS */
+    box-shadow: 0 25px 50px -12px rgba(74, 93, 66, 0.25); /* Bayangan melebar dramatis */
+    border-color: rgba(74, 93, 66, 0.4);
+    z-index: 20;
+}
+
+.modern-card-menu:active {
+    animation: ngeperCardMenu 0.4s forwards; /* Menjalankan efek ngeper saat diklik */
+}
+
+/* Keyframes untuk efek ngeper khusus kartu menu */
+@keyframes ngeperCardMenu {
+    0% { transform: scale(1) translateY(-10px); }
+    40% { transform: scale(0.94) translateY(4px); }
+    70% { transform: scale(1.02) translateY(-5px); }
+    100% { transform: scale(1) translateY(0); }
+}

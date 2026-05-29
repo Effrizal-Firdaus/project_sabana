@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Login</title>
+  <title>Login - Sabana Fried Chicken</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
 </head>
 <body>
 
-  <!-- Card utama -->
   <div class="login-wrapper">
     <div class="top-right-toggle">
       <a href="javascript:history.back()" class="back-btn" title="Kembali ke halaman awal">
@@ -21,9 +20,8 @@
       </a>
     </div>
 
-    <div class="mode-badge">USER LOGIN</div>
+    <div class="mode-badge">LOGIN SISTEM</div>
 
-    <!-- Panel kiri -->
     <div class="left-panel">
       <div class="logo">
         <div class="logo-icon"></div>
@@ -31,24 +29,24 @@
       </div>
 
       <div class="avatar">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user-lock"></i>
       </div>
 
-      <div class="form-title">USER LOGIN</div>
+      <div class="form-title">MASUK KE AKUN</div>
 
       <div class="alert" id="alertBox"></div>
 
       <form id="loginForm" action="process/login.php" method="POST" onsubmit="return handleLogin(event)">
-        <input type="hidden" name="role" value="user">
-
+        
         <div class="input-group">
           <i class="fa-solid fa-envelope left-icon"></i>
           <input type="email" name="email" id="loginEmail" placeholder="EMAIL" required>
         </div>
 
-        <div class="input-group">
+        <div class="input-group password-group">
           <i class="fa-solid fa-lock left-icon"></i>
           <input type="password" name="password" id="loginPassword" placeholder="PASSWORD" required>
+          <i class="fa-regular fa-eye toggle-password" id="togglePassword"></i>
         </div>
 
         <button type="submit" class="login-btn">LOGIN</button>
@@ -57,7 +55,7 @@
           <label class="remember">
             <input type="checkbox" name="remember"> Remember me
           </label>
-          <a href="https://www.instagram.com/effrizal_17/">Forgot your password?</a>
+          <a href="https://www.instagram.com/effrizal_17/" target="_blank">Forgot your password?</a>
         </div>
 
         <div class="switch-form">
@@ -65,19 +63,16 @@
           <a href="register.html">Daftar di sini</a>
         </div>
       </form>
-
     </div>
 
-    <!-- Panel kanan -->
     <div class="right-panel">
       <div class="welcome-content">
         <h1>Welcome.</h1>
-        <p>Selamat datang di Sabana Fried Chicken. Silakan masuk menggunakan akun Anda!</p>
-      </div>
+        <p>Selamat datang di Sabana Fried Chicken. Silakan masuk untuk melakukan pemesanan atau mengelola sistem.</p>
+      </div>  
     </div>
-
   </div>
 
-<script src="js/script-user.js"></script>
+  <script src="js/script-user.js"></script>
 </body>
 </html>

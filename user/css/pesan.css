@@ -1,0 +1,296 @@
+/* ========== PESAN.CSS ========== */
+.pesan-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #e11d48;
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(225,29,72,0.3);
+    margin-bottom: 2rem;
+    border: none;
+    cursor: pointer;
+}
+.back-btn:hover {
+    transform: translateX(-4px);
+    background: #991b1c;
+    box-shadow: 0 8px 20px rgba(225,29,72,0.4);
+}
+.back-btn:active {
+    transform: translateX(-2px) scale(0.98);
+    background: #7f1d1d;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.product-image img {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(0,0,0,0.15));
+    cursor: pointer;
+}
+@keyframes ngeper {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.08); }
+    60% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+.img-clicked {
+    animation: ngeper 0.35s cubic-bezier(0.2,0.9,0.4,1.1) forwards !important;
+}
+.product-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+.product-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #e11d48;
+    margin-bottom: 1.25rem;
+}
+.rating-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 1rem;
+}
+.stars {
+    display: inline-flex;
+    gap: 0.2rem;
+    font-size: 1rem;
+}
+.rating-value {
+    font-weight: 600;
+    color: #374151;
+}
+.rating-count {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+.product-description {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-left: 3px solid #e11d48;
+    padding-left: 1rem;
+}
+.quantity-section {
+    display: block;
+    width: 100%;
+}
+.quantity-label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.qty-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.qty-btn:hover {
+    background-color: #e5e7eb;
+    transform: scale(1.05);
+}
+.qty-input {
+    width: 4.5rem;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.stock-info {
+    background: #fef2f2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    display: inline-block;
+    margin: 1rem 0;
+}
+.stock-label {
+    font-weight: 600;
+    color: #b91c1c;
+    margin-right: 0.5rem;
+}
+.stock-value {
+    font-weight: 800;
+    color: #e11d48;
+    font-size: 1.2rem;
+}
+.order-btn {
+    background: #e11d48;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(225,29,72,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+.order-btn:hover {
+    transform: scale(1.02);
+    background: #991b1c;
+    box-shadow: 0 12px 28px rgba(225,29,72,0.4);
+}
+.order-btn:active {
+    transform: scale(0.98);
+    background: #7f1d1d;
+}
+.alert {
+    display: none;
+    position: relative;
+    background: radial-gradient(circle at top left, rgba(248,113,113,0.18), rgba(254,226,226,0.95));
+    color: #7f1d1d;
+    border: 1px solid rgba(248,113,113,0.35);
+    border-radius: 1.25rem;
+    padding: 1rem 1rem 1rem 4.25rem;
+    margin: 1rem 0 1.25rem;
+    font-size: 0.95rem;
+    box-shadow: 0 18px 32px rgba(225,29,72,0.12);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.alert::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0));
+    opacity: 0.65;
+    pointer-events: none;
+}
+.alert-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #dc2626;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(220,38,38,0.28);
+}
+.alert .alert-text {
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+}
+.alert.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.menu-rekomendasi .grid {
+    grid-auto-rows: 1fr;
+}
+.menu-rekomendasi .group {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.menu-rekomendasi .w-full.mt-3 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-rekomendasi .menu-title {
+    line-height: 1.3;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    padding: 0 0.25rem;
+    word-break: break-word;
+}
+.menu-rekomendasi .menu-box {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    border: 1px solid #f3f4f6;
+    padding: 1rem;
+}
+.menu-rekomendasi .menu-img {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.menu-rekomendasi .group .transition-all {
+    transition: all 0.5s ease-in-out;
+}
+.menu-rekomendasi .group:hover .transition-all {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* ANIMASI TERBANG (1 DETIK, GAMBAR TETAP TERLIHAT) */
+.flying-item {
+    position: fixed;
+    z-index: 100000;
+    width: 55px;
+    height: 55px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .product-title { font-size: 1.75rem; }
+    .product-price { font-size: 1.5rem; }
+    .product-description { font-size: 1rem; }
+    .pesan-container { padding: 1rem; }
+    .product-image img { max-width: 280px; }
+}

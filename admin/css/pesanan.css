@@ -1,0 +1,10 @@
+/* Gunakan style modern-card yang sudah ada di dashboard.css */
+.order-entry-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+.order-entry-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(74, 93, 66, 0.1);
+}

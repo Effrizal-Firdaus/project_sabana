@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  session_destroy();
-  header("Location: ../login.html");
-  exit;
+session_start();
+unset($_SESSION['admin']); // Hanya hapus session admin
+header("Location: ../../user/login.html");
+exit;
 ?>

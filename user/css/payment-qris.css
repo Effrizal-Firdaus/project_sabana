@@ -1,0 +1,71 @@
+#qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-card {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse-border {
+    animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+    0%, 100% {
+        border-color: rgb(225, 29, 72);
+        box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.1);
+    }
+    50% {
+        border-color: rgb(244, 114, 182);
+        box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.2);
+    }
+}
+
+/* Toast styles */
+#successToast, #errorToast {
+    transition: all 0.3s;
+}
+#successToast:not(.hidden), #errorToast:not(.hidden) {
+    display: flex;
+    animation: slideInRight 0.3s ease-out;
+}
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===== TOMBOL KEMBALI KE CHECKOUT (abu lebih gelap) ===== */
+.back-button {
+    background-color: #6b7280; /* abu matang lebih gelap */
+    transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1), background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.back-button:hover {
+    transform: translateX(5px) scale(1.02);
+    background-color: #4b5563; /* lebih gelap saat hover */
+}
+.back-button:active {
+    animation: ngeperBack 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    background-color: #374151; /* paling gelap saat diklik */
+}

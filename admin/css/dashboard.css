@@ -1,289 +1,297 @@
-/* ===== Dashboard Style Admin ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+/* ===== CSS KHUSUS UNTUK DASHBOARD ADMIN ===== */
 
-.dashboard-container {
-  display: flex;
-  min-height: 100vh;
+/* --- Keyframes untuk efek Ngeper (Bouncing) --- */
+@keyframes ngeperButton {
+    0% { transform: scale(1) translateY(-3px); }
+    40% { transform: scale(0.92) translateY(2px); }
+    70% { transform: scale(1.05) translateY(-4px); }
+    100% { transform: scale(1) translateY(0); }
 }
 
-/* ===== Sidebar ===== */
-.sidebar {
-  width: 280px;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: white;
-  padding: 30px 20px;
-  position: fixed;
-  height: 100vh;
-  overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+@keyframes ngeperCard {
+    0% { transform: scale(1.02) translateY(-5px); }
+    50% { transform: scale(0.98) translateY(0px); }
+    100% { transform: scale(1) translateY(-2px); }
 }
 
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+/* --- 1. Stat Cards (Total Pesanan, dll) --- */
+.stat-card-admin {
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transisi lebih smooth & kekinian */
+    cursor: pointer;
+}
+.stat-card-admin:hover {
+    border-color: #4a5d42; /* Garis tepi hijau */
+    transform: translateY(-8px); /* Efek maju ke depan / melayang */
+    box-shadow: 0 15px 30px -5px rgba(74, 93, 66, 0.25);
+}
+.stat-card-admin:active {
+    animation: ngeperCard 0.4s forwards; /* Efek ngeper saat dipencet */
 }
 
-.logo-section.admin {
-  background: rgba(74,93,66,0.3);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  border-bottom: none;
+/* --- 2. Tombol Filter Status --- */
+.status-filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #f3f4f6; 
+    color: #4b5563;
+    border-color: transparent;
+    cursor: pointer;
+}
+.status-filter-btn:hover {
+    transform: translateY(-4px); /* Efek maju */
+    box-shadow: 0 8px 15px -3px rgba(0,0,0,0.15);
+}
+.status-filter-btn:active {
+    animation: ngeperButton 0.4s forwards; /* Efek ngeper */
 }
 
-.logo-section i {
-  font-size: 32px;
+/* ================= WARNA TOMBOL FILTER (HOVER & ACTIVE) ================= */
+
+/* 1. Disiapkan (Oren) */
+.status-filter-btn.active[data-status="disiapkan"],
+.status-filter-btn[data-status="disiapkan"]:hover { 
+    background-color: #f97316; border-color: #f97316; color: white; 
+}
+.status-filter-btn.active[data-status="disiapkan"] span,
+.status-filter-btn[data-status="disiapkan"]:hover span { 
+    color: #f97316; 
 }
 
-.logo-section h2 {
-  font-size: 20px;
-  font-weight: 700;
+/* 2. Dimasak (Kuning) */
+.status-filter-btn.active[data-status="dimasak"],
+.status-filter-btn[data-status="dimasak"]:hover { 
+    background-color: #eab308; border-color: #eab308; color: white; 
+}
+.status-filter-btn.active[data-status="dimasak"] span,
+.status-filter-btn[data-status="dimasak"]:hover span { 
+    color: #eab308; 
 }
 
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* 3. Dikirim (Biru) */
+.status-filter-btn.active[data-status="dikirim"],
+.status-filter-btn[data-status="dikirim"]:hover { 
+    background-color: #3b82f6; border-color: #3b82f6; color: white; 
+}
+.status-filter-btn.active[data-status="dikirim"] span,
+.status-filter-btn[data-status="dikirim"]:hover span { 
+    color: #3b82f6; 
 }
 
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 15px;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  font-weight: 500;
+/* 4. Sampai (Hijau) */
+.status-filter-btn.active[data-status="sampai"],
+.status-filter-btn[data-status="sampai"]:hover { 
+    background-color: #22c55e; border-color: #22c55e; color: white; 
+}
+.status-filter-btn.active[data-status="sampai"] span,
+.status-filter-btn[data-status="sampai"]:hover span { 
+    color: #22c55e; 
 }
 
-.nav-item:hover {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding-left: 20px;
+/* 5. Selesai (Abu-abu Matang) */
+.status-filter-btn.active[data-status="selesai"],
+.status-filter-btn[data-status="selesai"]:hover { 
+    background-color: #4b5563; border-color: #4b5563; color: white; 
+}
+.status-filter-btn.active[data-status="selesai"] span,
+.status-filter-btn[data-status="selesai"]:hover span { 
+    color: #4b5563; 
 }
 
-.nav-item.active {
-  background: #4a5d42;
-  color: white;
+/* Menyesuaikan warna angka di dalam badge agar senada dengan warna tombolnya */
+.status-filter-btn.active[data-status="disiapkan"] span { color: #f97316; }
+.status-filter-btn.active[data-status="dimasak"] span { color: #eab308; }
+.status-filter-btn.active[data-status="dikirim"] span { color: #3b82f6; }
+.status-filter-btn.active[data-status="sampai"] span { color: #22c55e; }
+.status-filter-btn.active[data-status="selesai"] span { color: #4b5563; }
+
+/* --- 3. Order Cards (Bagian Pesanan) --- */
+.order-card {
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.order-card:hover {
+    border-color: #4a5d42; /* Garis tepi hijau */
+    transform: translateY(-6px); /* Efek maju ke depan */
+    box-shadow: 0 15px 35px -5px rgba(74, 93, 66, 0.15);
+}
+.order-card:active {
+    animation: ngeperCard 0.4s forwards; /* Efek ngeper */
+}
+/* ================= TAMBAHAN UTAMAKAN MODAL LOGOUT ================= */
+
+.modal-btn-cancel {
+    background-color: #c3c4c7; 
+    color: #374151; 
+    border: 1px solid #d1d5db;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.15s, color 0.15s, box-shadow 0.3s;
 }
 
-.nav-item i {
-  font-size: 18px;
-  width: 20px;
+.modal-btn-cancel:hover {
+    transform: translateY(-4px); 
+    background-color: #f3f4f6; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.nav-item.logout {
-  margin-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
-  color: #ff6b6b;
+.modal-btn-cancel:active {
+    animation: ngeperButton 0.4s forwards; 
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
+    border-color: #4b5563;
 }
 
-.nav-item.logout:hover {
-  background: rgba(255, 107, 107, 0.1);
+.modal-btn-confirm {
+    background: linear-gradient(to right, #2c3e50, #4a5d42);
+    color: #ffffff;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, filter 0.2s;
 }
 
-/* ===== Main Content ===== */
-.main-content {
-  margin-left: 280px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.modal-btn-confirm:hover {
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 22px rgba(74, 93, 66, 0.3);
+    filter: brightness(1.1); 
 }
 
-.top-bar {
-  background: white;
-  padding: 20px 40px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-btn-confirm:active {
+    animation: ngeperButton 0.4s forwards; 
+}
+/* ================= DESAIN MODERN & ELEGAN ================= */
+
+/* Efek Kaca (Glassmorphism) untuk Header */
+.glass-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 }
 
-.top-bar h1 {
-  font-size: 24px;
-  color: #333;
+/* Card Modern dengan Bayangan Lembut */
+.modern-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 1.25rem; /* rounded-2xl */
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.modern-card:hover {
+    transform: translateY(-5px);
+    border-color: #4a5d42;
+    box-shadow: 0 15px 30px -5px rgba(74, 93, 66, 0.12);
 }
 
-.avatar-small {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+.modern-card:active {
+    animation: ngeperCard 0.4s forwards;
 }
 
-.content {
-  flex: 1;
-  padding: 40px;
-  overflow-y: auto;
-  background: #f5f5f5;
+/* Container Ikon pada Stat Card */
+.icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(74, 93, 66, 0.1), rgba(74, 93, 66, 0.02));
+    color: #4a5d42;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
 }
 
-.welcome-section {
-  margin-bottom: 40px;
+.modern-card:hover .icon-box {
+    background: #4a5d42;
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg);
 }
 
-.welcome-section h2 {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 8px;
+/* Garis putus-putus elegan untuk pemisah di Card Pesanan */
+.dashed-divider {
+    border-top: 2px dashed rgba(229, 231, 235, 0.8);
+    margin: 1rem 0;
 }
-
-.welcome-section p {
-  color: #666;
-  font-size: 14px;
+/* ===== NOTIFIKASI BEL (TAMBAHAN) ===== */
+@keyframes bellRing {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0); }
 }
-
-/* ===== Stats Grid ===== */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+.ringing i {
+    animation: bellRing 0.5s ease-in-out;
 }
-
-.stat-card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: all 0.3s ease;
+/* ===== TOAST NOTIFICATION ===== */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    color: #1f2937;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+    min-width: 280px;
+    max-width: 400px;
+    border-left: 4px solid;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
 }
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+.toast-notification.show {
+    transform: translateX(0);
+    opacity: 1;
 }
-
-.stat-card i {
-  font-size: 32px;
-  color: #4a5d42;
-  margin-bottom: 12px;
+.toast-icon i {
+    font-size: 20px;
 }
-
-.stat-card h3 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 5px;
-  font-weight: 700;
+.toast-message {
+    flex: 1;
 }
-
-.stat-card p {
-  color: #666;
-  font-size: 13px;
-}
-
-/* ===== Action Buttons ===== */
-.action-buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.btn-primary {
-  background: #4a5d42;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #36402f;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: #ecf0f1;
-  color: #333;
-}
-
-.btn-secondary:hover {
-  background: #d5dbde;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-    padding: 20px 15px;
-  }
-
-  .main-content {
-    margin-left: 200px;
-  }
-
-  .top-bar {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .action-buttons {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    padding: 20px;
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .top-bar {
-    padding: 15px 20px;
-  }
-
-  .top-bar h1 {
+.toast-close {
+    background: none;
+    border: none;
     font-size: 18px;
-  }
+    cursor: pointer;
+    color: #9ca3af;
+    padding: 0;
+    margin-left: 8px;
+}
+.toast-close:hover {
+    color: #4b5563;
+}
+.toast-success {
+    border-left-color: #22c55e;
+}
+.toast-success .toast-icon i {
+    color: #22c55e;
+}
+.toast-error {
+    border-left-color: #ef4444;
+}
+.toast-error .toast-icon i {
+    color: #ef4444;
+}
+.toast-info {
+    border-left-color: #3b82f6;
+}
+.toast-info .toast-icon i {
+    color: #3b82f6;
+}
 
-  .content {
-    padding: 15px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
+/* ===== NOTIFIKASI BEL ===== */
+@keyframes bellRing {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0); }
+}
+.ringing i {
+    animation: bellRing 0.5s ease-in-out;
 }

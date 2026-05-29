@@ -1,30 +1,51 @@
-/* Smooth Scroll saat pindah section */
-html {
-    scroll-behavior: smooth;
+/* ========== MENU UTAMA SPECIFIC ========== */
+
+/* Animasi ngeper untuk card menu */
+@keyframes ngeper {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    60% { transform: scale(0.98); }
+    100% { transform: scale(1); }
 }
 
-/* Style Menu Aktif */
-.nav-link.active {
-    color: #e11d48 !important;
-    /* Warna Merah Sabana */
-    border-bottom: 2px solid #e11d48;
-    /* Garis Bawah Merah */
+.menu-item-clicked {
+    animation: ngeper 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
 }
 
-/* Hover effect */
-.nav-link:hover {
-    color: #e11d48;
+/* Animasi ngeper untuk dropdown menu items (saat diklik) */
+@keyframes dropdownNgeper {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.08); }
+    70% { transform: scale(0.98); }
+    100% { transform: scale(1); }
 }
 
-/* Ukuran Slider agar konsisten */
-.swiper {
-    width: 100%;
-    height: 450px;
-    /* Sesuaikan tinggi slider */
+.nav-container .absolute a:active {
+    animation: dropdownNgeper 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards !important;
 }
 
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Animasi panah dropdown */
+#menuArrow {
+    transition: transform 0.3s ease;
+}
+#menuArrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* Efek sosial media footer */
+.social-icon {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.social-icon:hover {
+    transform: scale(1.15);
+}
+@keyframes ngeperSocial {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.2); }
+    60% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.social-icon-clicked {
+    animation: ngeperSocial 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards !important;
 }

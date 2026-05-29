@@ -1,9 +1,9 @@
-/* ===== GLOBAL STYLES ===== */
+/* ===== GLOBAL STYLES (sudah ada) ===== */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
 body {
   min-height: 100vh;
-  background: #f9fafb; /* Gray-50 agar senada dengan menu_utama */
+  background: #f9fafb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== TOMBOL KEMBALI (Posisi Asli: Kiri Bawah) ===== */
+/* ===== TOMBOL KEMBALI ===== */
 .top-right-toggle {
   position: absolute;
   bottom: 24px;
@@ -20,7 +20,7 @@ body {
   z-index: 10;
 }
 .top-right-toggle .back-btn {
-  background: #1f2937; /* Sabana Dark */
+  background: #1f2937;
   color: #fff;
   border: none;
   width: 44px;
@@ -37,7 +37,7 @@ body {
   text-decoration: none;
 }
 .top-right-toggle .back-btn:hover {
-  background: #e11d48; /* Sabana Red */
+  background: #e11d48;
   transform: translateY(-2px);
 }
 .top-right-toggle .back-btn .sr-only {
@@ -73,14 +73,13 @@ body {
 .logo-icon::before, .logo-icon::after {
   content:''; position:absolute; width: 26px; height: 26px; border-radius: 6px;
 }
-.logo-icon::before { top:0; left:0; background: #ffcc00; opacity: .7; } /* Sabana Gold */
-.logo-icon::after  { bottom:0; right:0; background: #e11d48; }           /* Sabana Red */
-
+.logo-icon::before { top:0; left:0; background: #ffcc00; opacity: .7; }
+.logo-icon::after  { bottom:0; right:0; background: #e11d48; }
 .logo-text { font-weight: 700; font-size: 18px; line-height: 1.15; color: #1f2937; }
 
 .avatar {
   width: 90px; height: 90px; border-radius: 50%;
-  background: #e11d48; /* Sabana Red */
+  background: #e11d48;
   display: flex; align-items: center; justify-content: center;
   margin: 5px auto 22px; color: #fff; font-size: 38px;
   box-shadow: 0 6px 18px rgba(225, 29, 72, 0.3);
@@ -106,6 +105,28 @@ body {
 }
 .input-group input:focus { border-color: #e11d48; }
 
+/* Toggle password khusus untuk group password */
+.password-group {
+  position: relative;
+}
+.toggle-password {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+  z-index: 2;
+  font-size: 1.1rem;
+}
+.toggle-password:hover {
+  color: #e11d48;
+}
+.password-group input {
+  padding-right: 45px;
+}
+
 .login-btn {
   width: 100%; padding: 13px; border: none; border-radius: 30px;
   background: #e11d48; color: #fff; font-weight: 600; font-size: 14px;
@@ -129,7 +150,7 @@ body {
 /* ===== PANEL KANAN (WELCOME) ===== */
 .right-panel {
   position: relative;
-  background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #1f2937 100%);
+  background: #e11d48;
   overflow: hidden; display: flex; flex-direction: column; justify-content: center;
   padding: 60px 70px; color: #fff;
 }
@@ -150,7 +171,7 @@ body {
   font-size: 11px; font-weight: 700; letter-spacing: 2px; z-index: 5; text-transform: uppercase;
 }
 
-/* ===== MODE ADMIN (SABANA DARK) ===== */
+/* ===== MODE ADMIN ===== */
 body.admin-mode { background: #111827; }
 body.admin-mode .avatar { background: #1f2937; box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
 body.admin-mode .login-btn { background: #1f2937; }
